@@ -1,0 +1,24 @@
+<template name="listItem">
+  <view class='f-js-as list-item'>
+    <view class='head-img'>
+      <image src='{{avatarUrl}}'></image>
+    </view>
+    <view class='content-box'>
+      <view class='header'>
+        <view class='header-text1'>
+          <text class='name'>{{nickName}}</text><text class='t-nt'>  发起一起吖:</text>
+        </view>
+        <view class='f-jb-ac header-text2'>
+          <text>{{createTime}}</text><span>{{address}} <image class='icon-adderss' src="../../images/icon/iconAddress.png"></image></span>
+        </view>
+      </view>
+      <view class='content'>
+        <text class='description'>{{description}}</text>
+        <view class='list-imgs'>
+          <image class='list-imgs-item-big' wx:if='{{imgList.length <= 2}}' wx:for="{{imgList}}" src="{{item}}" wx:key='index'></image>
+          <image class='list-imgs-item' wx:if='{{imgList.length > 2}}' wx:for="{{imgList}}" src="{{item}}" wx:key='index'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

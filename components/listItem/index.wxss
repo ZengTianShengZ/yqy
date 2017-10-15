@@ -1,0 +1,60 @@
+/**index.wxss**/
+.list-item{
+  margin: 0 10rpx;
+  padding: 30rpx 0;
+  border-bottom: 1px solid #F0F0F0;
+}
+.head-img{
+  width: 80rpx;
+  height: 80rpx;
+  margin:0 20rpx 0 10rpx;
+  border-radius: 50rpx;
+}
+.head-img image{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50rpx;
+}
+.content-box{
+  width: 100%;
+}
+.header{
+  width: 100%;
+}
+.header-text1{
+  font-size: 30rpx;
+}
+.header-text1 .name{
+  color: #6FB7B7;
+}
+.header-text1 .t-nt{
+  color: rgb(160, 163, 162);
+}
+.header-text2{
+  font-size: 28rpx;
+  color: #6C6C6C;
+}
+.header-text2 .icon-adderss{
+  width: 28rpx;
+  height: 28rpx;
+  vertical-align: -4rpx;
+}
+.content{
+  margin-top: 10rpx;
+}
+.content .description{
+  font-size: 32rpx;
+  color: #3C3C3C;
+}
+.list-imgs .list-imgs-item-big{
+  width: 300rpx;
+  height: 300rpx;
+  margin: 2rpx;
+  vertical-align:middle;
+}
+.list-imgs .list-imgs-item{
+  width: 32.588%;
+  height: 200rpx;
+  margin: 2rpx;
+  vertical-align:middle;
+}
