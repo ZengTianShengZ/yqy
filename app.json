@@ -1,7 +1,7 @@
 {
   "pages":[
-    "pages/index/index",
-    "pages/mine/mine"
+    "pages/my/my",
+    "pages/index/index"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -21,7 +21,7 @@
         "selectedIconPath": "images/tabhome.png"
       },
       {
-        "pagePath": "pages/mine/mine",
+        "pagePath": "pages/my/my",
         "text": "我的",
         "iconPath": "images/tabmy.png",
         "selectedIconPath": "images/tabmy.png"

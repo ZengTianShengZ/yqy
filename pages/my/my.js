@@ -1,26 +1,23 @@
 //index.js
 //获取应用实例
-const login = require('../../utils/login')
-const storage = require('../../libs/lib/storage')
-
-const app = getApp();
+const app = getApp()
 
 Page({
   data: {
-    obj_listItem: {
-      nickName: '曾田生x',
-      avatarUrl: 'https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKApG4aicW5835FUgOBY75jRDaYt8B84YIQL6v9J9lI4KEPA1nicGNxtdlI5iamIosXiaRqiavDAXmW2rQ/0',
-      createTime: '今天 09：06',
-      address: '福鼎家园',
-      description: '说的就案件的就是就看看模块时代是的搜东山口卡就是卡死进度款几十块几点开始',
-      imgList: [
-        '../../images/matter/img1.jpeg',
-        '../../images/matter/img6.jpeg',
-        '../../images/matter/img7.jpeg',
-        '../../images/matter/img8.jpeg',
-        '../../images/matter/img9.jpeg'
-      ]
-    },
+    winWidth: 400,
+   winHeight: 500,
+   // tab切换
+   currentTab: 0,
+    obj_userInfo: {},
+    imgUrls: [
+      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
+      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
+    ],
+    indicatorDots: false,
+    autoplay: false,
+    interval: 2000,
+    duration: 400,
     arr_listItems: [
       {
         nickName: '曾田生x1',
@@ -85,15 +82,69 @@ Page({
       }
     ]
   },
-  onLoad() {
+  onLoad: function () {
+    /**
+     * 获取系统信息
+     */
+    // wx.getSystemInfo({
+    //   success: function( res ) {
+    //     that.setData( {
+    //       winWidth: res.windowWidth,
+    //       winHeight: res.windowHeight
+    //     });
+    //   }
+    // });
 
-  },
-  clickPreviewImage(event) {
-    wx.previewImage({
-      current: event.currentTarget.dataset.imgurl,
-      urls: event.currentTarget.dataset.imgurls,
-      success: function (res) {
+    wx.getUserInfo({
+      success: res => {
+        this.setData({
+          obj_userInfo: res.userInfo
+        })
       }
     })
+  },
+  changeIndicatorDots: function(e) {
+    this.setData({
+      indicatorDots: !this.data.indicatorDots
+    })
+  },
+  changeAutoplay: function(e) {
+    this.setData({
+      autoplay: !this.data.autoplay
+    })
+  },
+  intervalChange: function(e) {
+    this.setData({
+      interval: e.detail.value
+    })
+  },
+  durationChange: function(e) {
+    this.setData({
+      duration: e.detail.value
+    })
+  },
+  /**
+     * 滑动切换tab
+     */
+  bindChange: function( e ) {
+
+    var that = this;
+    that.setData( { currentTab: e.detail.current });
+
+  },
+  /**
+   * 点击tab切换
+   */
+  swichNav: function( e ) {
+
+    var that = this;
+
+    if( this.data.currentTab === e.target.dataset.current ) {
+      return false;
+    } else {
+      that.setData( {
+        currentTab: e.target.dataset.current
+      })
+    }
   }
-});
+})

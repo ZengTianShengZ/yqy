@@ -1,0 +1,58 @@
+/**index.wxss**/
+@import '../../components/listItem/index.wxss';
+
+.user-info{
+  width: 100%;
+  background-color: #FEC4AA;
+}
+.avatar{
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 100rpx;
+}
+.name-info{
+  margin: 20rpx 0;
+  color: #ffffff;
+  font-size: 30rpx;
+}
+.nickname{
+  margin-right: 10rpx;
+}
+.gender{
+  width: 35rpx;
+  height: 35rpx;
+  vertical-align: -8rpx;
+}
+.record{
+  margin-bottom: 20rpx;
+  color: #ffffff;
+  font-size: 30rpx;
+}
+.line-ng{
+  display: inline-block;
+  margin: 0 15rpx;
+  width: 1px;
+  height: 25rpx;
+  background-color: #F0F0F0;
+}
+
+
+
+
+.swiper-tab{
+    width: 100%;
+    border-bottom: 2rpx solid #777777;
+    text-align: center;
+    line-height: 80rpx;}
+.swiper-tab-list{  font-size: 30rpx;
+    display: inline-block;
+    width: 33.33%;
+    color: #777777;
+}
+.on{ color: #da7c0c;
+    border-bottom: 5rpx solid #da7c0c;}
+
+.swiper-box{ display: block; height: 100%; width: 100%; overflow: hidden; }
+.swiper-box view{
+    text-align: center;
+}  

@@ -15,8 +15,8 @@
       <view class='content'>
         <text class='description'>{{description}}</text>
         <view class='list-imgs'>
-          <image class='list-imgs-item-big' wx:if='{{imgList.length <= 2}}' wx:for="{{imgList}}" src="{{item}}" wx:key='index'></image>
-          <image class='list-imgs-item' wx:if='{{imgList.length > 2}}' wx:for="{{imgList}}" src="{{item}}" wx:key='index'></image>
+          <image class='list-imgs-item-big' wx:if='{{imgList.length <= 2}}' wx:for="{{imgList}}" src="{{item}}" wx:key='index' data-imgUrl='{{item}}' data-imgUrls='{{imgList}}' bindtap='clickPreviewImage'></image>
+          <image class='list-imgs-item' wx:if='{{imgList.length > 2}}' wx:for="{{imgList}}" src="{{item}}" wx:key='index' data-imgUrl='{{item}}' data-imgUrls='{{imgList}}' bindtap='clickPreviewImage'></image>
         </view>
       </view>
     </view>

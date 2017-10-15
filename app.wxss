@@ -72,3 +72,10 @@
   justify-content: flex-start;
   align-items: flex-start;
 }
+
+.f-jc-ac-dc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
