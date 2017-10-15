@@ -7,4 +7,68 @@
   justify-content: space-between;
   padding: 200rpx 0;
   box-sizing: border-box;
-} 
+}
+.fr {
+  float: right;
+}
+
+.fl {
+  float: left;
+}
+
+.clear:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/** transform上下左右居中 **/
+.ctt {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/** 定位上下居中 **/
+.tb {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+/** 定位左右居中 **/
+.lr {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+/** flex 布局和 子元素 对其方式 **/
+.f-jb-ac{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.f-jc-ac{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.f-jc-ac-w{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.f-js-ac{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.f-js-as{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}

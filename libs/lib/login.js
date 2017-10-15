@@ -1,10 +1,10 @@
 var utils = require('./utils');
 var constants = require('./constants');
 var Session = require('./session');
-const api = require('../../api');
+const api = require('../../api/index.js');
 
 const login = function login(options) {
-    options = utils.extend({}, defaultOptions, options);
+    //options = utils.extend({}, defaultOptions, options);
     api.login().then((res) => {
       console.log(res)
     }).catch(err => {

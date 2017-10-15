@@ -1,6 +1,31 @@
-<!--index.wxml-->
-<view class="container">
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+<view class="section">
+  <view class='f-js-as list-item'>
+    <view class='head-img'>
+      <image src="https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKApG4aicW5835FUgOBY75jRDaYt8B84YIQL6v9J9lI4KEPA1nicGNxtdlI5iamIosXiaRqiavDAXmW2rQ/0"></image>
+    </view>
+    <view>
+      <view class='header'>
+        <view class='header-text1'>
+          <text class='name'>曾田生</text><text class='t-nt'>  发起一起吖:</text>
+        </view>
+        <view class='f-jb-ac header-text2'>
+          <text>1015/2:30</text><span>福鼎家园 <image class='icon-adderss' src="../../images/icon/iconAddress.png"></image></span>
+        </view>
+      </view>
+      <view class='content'>
+        <text class='description'>是空间打开手机打开手机看大家时刻监控时刻记得时刻接口就数据库的</text>
+        <view class='list-imgs'>
+          <image class='list-imgs-item' src="../../images/matter/img1.jpeg"></image>
+          <image class='list-imgs-item' src="../../images/matter/img2.jpeg"></image>
+          <image class='list-imgs-item' src="../../images/matter/img3.jpeg"></image>
+          <image class='list-imgs-item' src="../../images/matter/img4.jpeg"></image>
+          <image class='list-imgs-item' src="../../images/matter/img5.jpeg"></image>
+          <image class='list-imgs-item' src="../../images/matter/img6.jpeg"></image>
+          <image class='list-imgs-item' src="../../images/matter/img7.jpeg"></image>
+          <image class='list-imgs-item' src="../../images/matter/img8.jpeg"></image>
+          <image class='list-imgs-item' src="../../images/matter/img9.jpeg"></image>
+        </view>
+      </view>
+    </view>
   </view>
 </view>
