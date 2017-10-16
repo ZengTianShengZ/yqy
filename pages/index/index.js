@@ -95,5 +95,10 @@ Page({
       success: function (res) {
       }
     })
+  },
+  clickNavigateTo() {
+    wx.navigateTo({
+      url: '../detail/detail?id=1'
+    })
   }
 });

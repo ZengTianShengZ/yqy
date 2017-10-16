@@ -1,5 +1,5 @@
 <template name="listItem">
-  <view class='f-js-as list-item'>
+  <view class='f-js-as list-item' bindtap='clickNavigateTo'>
     <view class='head-img'>
       <image src='{{avatarUrl}}'></image>
     </view>

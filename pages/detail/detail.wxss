@@ -1,0 +1,5 @@
+/**index.wxss**/
+@import '../../components/listItem/index.wxss';
+
+.section{
+}
