@@ -1,5 +1,63 @@
 /**index.wxss**/
 @import '../../components/listItem/index.wxss';
+@import '../../components/commentItem/index.wxss';
 
 .section{
+}
+.join-member{
+  width: 100%;
+  height: 100rpx;
+}
+.jm-left{
+  padding: 10rpx;
+  font-size: 30rpx;
+}
+.jm-left text{
+  margin:0 10rpx;
+}
+.jm-left image{
+  width: 60rpx;
+  height: 60rpx;
+  margin: 0 8rpx;
+  border-radius: 50rpx;
+}
+.jm-right{
+  margin-right: 20rpx;
+}
+.jm-right image{
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50rpx;
+}
+.jm-right text{
+  font-size: 30rpx;
+}
+.comment{
+  background: #fdfcfb;
+  margin-bottom: 110rpx;
+}
+.comment .text-ng{
+  display: block;
+  width: 100%;
+  padding: 10rpx 0 10rpx 20rpx;
+  color: #3C3C3C;
+  font-size: 30rpx;
+  background-color: #F0F0F0;
+}
+.input-comment{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: #ffffff;
+  padding: 30rpx;
+}
+.input-comment .input-icon{
+  width: 45rpx;
+  height: 45rpx;
+}
+.input-comment .textarea-com{
+  padding-bottom: 10rpx;
+  font-size: 36rpx;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
 }

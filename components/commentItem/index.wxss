@@ -1,0 +1,31 @@
+.comment-item{
+  width: 96%;
+  margin: 20rpx auto;
+}
+.comment-item image{
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 70rpx;
+}
+.comment-item text {
+  display: block;
+}
+.comment-item .item-right{
+  margin-left: 80rpx;
+}
+.comment-item .item-right .name{
+  display: block;
+  font-size: 34rpx;
+  color: #474747;
+}
+.comment-item .item-right .create-time{
+  display: block;
+  font-size: 30rpx;
+  color: #636363;
+}
+.comment-item .item-right .comment-text{
+  padding: 20rpx 0;
+  font-size: 36rpx;
+  color: #383838;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}

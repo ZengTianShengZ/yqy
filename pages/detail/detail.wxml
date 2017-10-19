@@ -1,5 +1,26 @@
 <import src='../../components/listItem/index.wxml'/>
+<import src='../../components/commentItem/index.wxml'/>
 
 <view class="section">
   <template is="listItem" data='{{...obj_listItem}}'></template>
+  <view class='join-member f-jb-ac'>
+    <view class='f-js-ac jm-left'>
+      <text>吖:</text>
+      <image src='{{obj_listItem.avatarUrl}}'></image>
+      <image src='{{obj_listItem.avatarUrl}}'></image>
+      <image src='{{obj_listItem.avatarUrl}}'></image>
+    </view>
+    <view class='f-js-ac jm-right'>
+      <image src="../../images/icon/iconJoin.png"></image>
+      <text>+5</text>
+    </view>
+  </view>
+  <view class='comment'>
+    <text class='text-ng'>评论留言</text>
+    <template is="commentItem" wx:for='{{arr_commentList}}' wx:key='index' data='{{...item}}'></template>
+  </view>
+  <view class='f-js-as input-comment'>
+    <image class='input-icon' src='../../images/icon/iconPen.png'></image>
+    <textarea class='textarea-com' auto-height fixed='true' placeholder="写评论" placeholder-style="color:#7F7F7F;"  />
+  </view>
 </view>

@@ -1,0 +1,14 @@
+
+<view class="section">
+  <view>
+    <textarea class='textarea-text' bindblur="bindTextAreaBlur"  placeholder="自动变高" />
+  </view>
+  <view class='choose-image'>
+    <image src="../../images/icon/iconAddImg.png"></image>
+    <image src="../../images/icon/iconAddImg.png"></image>
+  </view>
+  <view class='icon-address'>
+    <image src="../../images/icon/iconAddress.png"></image>
+    <text>福鼎家园·xx</text>
+  </view>
+</view>
