@@ -1,14 +1,22 @@
 
 <view class="section">
   <view>
-    <textarea class='textarea-text' bindblur="bindTextAreaBlur"  placeholder="自动变高" />
+    <textarea class='textarea-text' bindblur="bindTextAreaBlur"  placeholder="一起吖~" />
   </view>
   <view class='choose-image'>
-    <image src="../../images/icon/iconAddImg.png"></image>
-    <image src="../../images/icon/iconAddImg.png"></image>
+    <block class="image-list" wx:if='{{sendData.imgTempFilePaths.length > 0}}'>
+      <view class="choose-block" wx:for='{{sendData.imgTempFilePaths}}' wx:key='index'>
+        <image class="close-image-btn" data-closeImgIndex='{{index}}' bindtap="closeImgBtnClick" src="../../images/icon/iconClose.png"></image>
+        <image class="image-item" src="{{item}}"></image>
+      </view>
+    </block>
+    <image class="choose-image-btn" wx:if='{{sendData.imgTempFilePaths.length < 9}}' bindtap="chooseImgBtnClick" src="../../images/icon/iconAddImg.png"></image>
   </view>
   <view class='icon-address'>
-    <image src="../../images/icon/iconAddress.png"></image>
-    <text>福鼎家园·xx</text>
+    <image class="img-icon" src="../../images/icon/iconAddress.png"></image>
+    <text class="text-ng">福鼎家园·xx</text>
+  </view>
+  <view class='send-btn-box'>
+    <button class='send-btn'  bindtap="sendBtnClick"> 发送 </button>
   </view>
 </view>

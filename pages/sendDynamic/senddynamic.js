@@ -7,22 +7,39 @@ const app = getApp();
 
 Page({
   data: {
-  
+    sendData: {
+      imgTempFilePaths: []
+    }
   },
   onLoad() {
 
   },
-  clickPreviewImage(event) {
-    wx.previewImage({
-      current: event.currentTarget.dataset.imgurl,
-      urls: event.currentTarget.dataset.imgurls,
-      success: function (res) {
+  closeImgBtnClick(event) {
+    let closeimgindex = event.currentTarget.dataset.closeimgindex
+    let imgTempFilePaths = this.data.sendData.imgTempFilePaths
+    //arr.splice(closeimgindex,1) 有问题不知道为什么，才用以下方法
+    let imgTempFilePathsx = imgTempFilePaths.slice(0,closeimgindex).concat(imgTempFilePaths.slice(closeimgindex+1,imgTempFilePaths.length))
+    this.setData({
+      sendData:{
+        imgTempFilePaths:  imgTempFilePathsx
       }
     })
   },
-  clickNavigateTo() {
-    wx.navigateTo({
-      url: '../detail/detail?id=1'
+  chooseImgBtnClick(){
+    let _this = this
+    let imgTempFilePaths = this.data.sendData.imgTempFilePaths
+    wx.chooseImage({
+      count: 9 - imgTempFilePaths.length, // 默认9
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+      success: function (res) {
+        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+        _this.setData({
+          sendData:{
+            imgTempFilePaths:  res.tempFilePaths.concat(imgTempFilePaths)
+          }
+        })
+      }
     })
   }
 });
