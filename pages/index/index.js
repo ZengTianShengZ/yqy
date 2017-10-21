@@ -7,6 +7,7 @@ const app = getApp();
 
 Page({
   data: {
+    b_directionYup: true,
     obj_listItem: {
       nickName: '曾田生x',
       avatarUrl: 'https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKApG4aicW5835FUgOBY75jRDaYt8B84YIQL6v9J9lI4KEPA1nicGNxtdlI5iamIosXiaRqiavDAXmW2rQ/0',
@@ -100,5 +101,16 @@ Page({
     wx.navigateTo({
       url: '../detail/detail?id=1'
     })
+  },
+  viewScrollListening(e) {
+    if(e.detail.deltaY > 0) {
+      this.setData({
+         b_directionYup: true
+      })
+    } else {
+      this.setData({
+         b_directionYup: false
+      })
+    }
   }
 });

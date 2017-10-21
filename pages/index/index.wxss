@@ -2,4 +2,27 @@
 @import '../../components/listItem/index.wxss';
 
 .section{
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.scroll-view{
+  height: 100vh;
+  overflow: auto;
+}
+.img-icon{
+  position: fixed;
+  left: 20rpx;
+  bottom: 20rpx;
+  width: 80rpx;
+  height: 80rpx;
+  background-color: #ffffff;
+  border-radius: 40rpx;
+  transition: all .5s ease-in;
+}
+.imgIconAminDown{
+  transform:translate(0,50px);
+}
+.imgIconAminUp{
+  transform:translate(0,-50px);
 }

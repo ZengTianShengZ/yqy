@@ -2,7 +2,37 @@
 <import src='../../components/commentItem/index.wxml'/>
 
 <view class="section">
-  <template is="listItem" data='{{...obj_listItem}}'></template>
+  <!-- <template is="listItem" data='{{...obj_listItem}}'></template> -->
+  <view class='detail-view' bindtap='clickNavigateTo'>
+    <view class='f-js-ac head-view'>
+      <image class='fl avatar' src='{{obj_listItem.avatarUrl}}'></image>
+      <view class='right-view'>
+        <view class='clear name-joinbtn'>
+          <text class='fl name'>{{obj_listItem.nickName}}</text>
+          <view class='fr'>
+            <image class='icon-join' src="../../images/icon/iconJoin.png"></image>
+            <text class='joinbtn'>吖</text>
+          </view>
+        </view>
+        <view class='clear time-address'>
+          <text class='fl time'>{{obj_listItem.createTime}}</text>
+          <view class='fr'>
+            <image class='icon-adderss' src="../../images/icon/iconAddress.png"></image>
+            <text class='address'>{{obj_listItem.address}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='content-box'>
+      <text class='description'>{{obj_listItem.description}}</text>
+      <view class='list-imgs'>
+        <image class='list-imgs-item-big' wx:if='{{obj_listItem.imgList.length <= 2}}' wx:for="{{obj_listItem.imgList}}" src="{{item}}" wx:key='index' data-imgUrl='{{item}}' data-imgUrls='{{obj_listItem.imgList}}' bindtap='clickPreviewImage'></image>
+        <image class='list-imgs-item' wx:if='{{obj_listItem.imgList.length > 2}}' wx:for="{{obj_listItem.imgList}}" src="{{item}}" wx:key='index' data-imgUrl='{{item}}' data-imgUrls='{{obj_listItem.imgList}}' bindtap='clickPreviewImage'></image>
+      </view>
+    </view>
+  </view>
+
+
   <view class='join-member f-jb-ac'>
     <view class='f-js-ac jm-left'>
       <text>吖:</text>
@@ -10,10 +40,7 @@
       <image src='{{obj_listItem.avatarUrl}}'></image>
       <image src='{{obj_listItem.avatarUrl}}'></image>
     </view>
-    <view class='f-js-ac jm-right'>
-      <image src="../../images/icon/iconJoin.png"></image>
-      <text>+5</text>
-    </view>
+    <text class='fr jm-r-text'>+5</text>
   </view>
   <view class='comment'>
     <text class='text-ng'>评论留言</text>

@@ -1,15 +1,97 @@
 /**index.wxss**/
-@import '../../components/listItem/index.wxss';
+/*@import '../../components/listItem/index.wxss';*/
 @import '../../components/commentItem/index.wxss';
 
 .section{
 }
+.detail-view{
+  width: 100%;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.head-view {
+
+}
+.head-view .avatar{
+  display: block;
+  width: 80rpx;
+  height: 72rpx;
+  border-radius: 50rpx;
+}
+.head-view .right-view{
+  margin-left: 20rpx;
+  width: 100%;
+}
+.name-joinbtn{
+  display: block;
+  width: 100%;
+  font-size: 34rpx;
+}
+.name-joinbtn .name{
+  color: #6FB7B7;
+}
+.name-joinbtn .icon-join{
+  width: 40rpx;
+  height: 40rpx;
+  vertical-align: -6rpx;
+}
+.name-joinbtn .joinbtn{
+  font-size: 30rpx;
+  color: #FF6347;
+}
+.time-address {
+  display: block;
+  width: 100%;
+  font-size: 28rpx;
+  color: #808080;
+}
+.time-address .icon-adderss{
+  width: 28rpx;
+  height: 28rpx;
+}
+.time-address .address {
+  vertical-align: 4rpx;
+}
+.content-box .description{
+  font-size: 34rpx;
+  color: #696969;
+  text-align: justify;
+}
+.list-imgs .list-imgs-item-big{
+  width: 300rpx;
+  height: 300rpx;
+  padding: 4rpx;
+}
+.list-imgs .list-imgs-item{
+  width: 33.33%;
+  height: 250rpx;
+  padding: 4rpx;
+  box-sizing: border-box;
+  vertical-align:middle;
+}
+
 .join-member{
+  position: relative;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100rpx;
+  padding: 6rpx;
+  box-sizing: border-box;
+  color: #696969;
+}
+.join-member::before{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 96%;
+  height: 1px;
+  background: rgba(0,0,0,0.1);
+  content: ''
 }
 .jm-left{
-  padding: 10rpx;
   font-size: 30rpx;
 }
 .jm-left text{
@@ -21,16 +103,9 @@
   margin: 0 8rpx;
   border-radius: 50rpx;
 }
-.jm-right{
-  margin-right: 20rpx;
-}
-.jm-right image{
-  width: 40rpx;
-  height: 40rpx;
-  border-radius: 50rpx;
-}
-.jm-right text{
-  font-size: 30rpx;
+.jm-r-text{
+  font-size: 34rpx;
+  margin-right: 10rpx;
 }
 .comment{
   background: #fdfcfb;
@@ -40,6 +115,7 @@
   display: block;
   width: 100%;
   padding: 10rpx 0 10rpx 20rpx;
+  box-sizing: border-box;
   color: #3C3C3C;
   font-size: 30rpx;
   background-color: #F0F0F0;
@@ -51,6 +127,7 @@
   width: 100%;
   background: #ffffff;
   padding: 30rpx;
+  box-sizing: border-box;
 }
 .input-comment .input-icon{
   width: 45rpx;
@@ -59,5 +136,6 @@
 .input-comment .textarea-com{
   padding-bottom: 10rpx;
   font-size: 36rpx;
+  box-sizing: border-box;
   border-bottom: 1px solid rgba(0,0,0,0.1);
 }

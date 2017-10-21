@@ -1,9 +1,9 @@
 {
   "pages":[
-    "pages/sendDynamic/senddynamic",
+      "pages/detail/detail",
     "pages/index/index",
     "pages/my/my",
-    "pages/detail/detail"
+    "pages/sendDynamic/senddynamic"
   ],
   "window":{
     "backgroundTextStyle":"light",

@@ -1,5 +1,8 @@
 <import src='../../components/listItem/index.wxml'/>
 
 <view class="section">
-  <template is="listItem" wx:for='{{arr_listItems}}' wx:key='index' data='{{...item}}'></template>
+  <scroll-view class="scroll-view" scroll-y bindscroll="viewScrollListening" >
+    <template is="listItem" wx:for='{{arr_listItems}}' wx:key='index' data='{{...item}}'></template>
+  </scroll-view>
+  <image class="img-icon {{b_directionYup ? 'imgIconAminUp' : 'imgIconAminDown'}}" src="../../images/icon/iconAddm.png"></image>
 </view>

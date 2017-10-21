@@ -1,6 +1,8 @@
 .comment-item{
   width: 96%;
   margin: 20rpx auto;
+  color: #696969;
+  font-size: 30rpx;
 }
 .comment-item image{
   width: 70rpx;
@@ -15,17 +17,14 @@
 }
 .comment-item .item-right .name{
   display: block;
-  font-size: 34rpx;
-  color: #474747;
 }
 .comment-item .item-right .create-time{
   display: block;
-  font-size: 30rpx;
-  color: #636363;
+  font-size: 28rpx;
+  color: #808080;
 }
 .comment-item .item-right .comment-text{
   padding: 20rpx 0;
-  font-size: 36rpx;
-  color: #383838;
+  box-sizing: border-box;
   border-bottom: 1px solid rgba(0,0,0,0.1);
 }
