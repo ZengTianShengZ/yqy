@@ -97,9 +97,15 @@ Page({
       }
     })
   },
-  clickNavigateTo() {
+  clickNavigateToDetailPage() {
     wx.navigateTo({
       url: '../detail/detail?id=1'
+    })
+  },
+  clickNavigateToSendDyPage() {
+    wx.navigateTo({
+      //url: '../detail/detail?id=1'
+      url: '../sendDynamic/senddynamic?id=1'
     })
   },
   viewScrollListening(e) {

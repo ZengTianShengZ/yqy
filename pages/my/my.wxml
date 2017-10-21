@@ -26,7 +26,7 @@
       </swiper-item>
       <!-- 我是呵呵 -->
       <swiper-item class="swiper-item {{swiperItemAutoFlag ? 'swiperItemAuto' : ''}}">
-        <view>我是呵呵</view>
+        <template is="listItem" wx:for='{{arr_listItems}}' wx:key='index' data='{{...item}}'></template>
       </swiper-item>
   </swiper>
 

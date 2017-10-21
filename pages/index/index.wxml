@@ -4,5 +4,5 @@
   <scroll-view class="scroll-view" scroll-y bindscroll="viewScrollListening" >
     <template is="listItem" wx:for='{{arr_listItems}}' wx:key='index' data='{{...item}}'></template>
   </scroll-view>
-  <image class="img-icon {{b_directionYup ? 'imgIconAminUp' : 'imgIconAminDown'}}" src="../../images/icon/iconAddm.png"></image>
+  <image class="img-icon {{b_directionYup ? 'imgIconAminUp' : 'imgIconAminDown'}}" src="../../images/icon/iconAddm.png" bindtap='clickNavigateToSendDyPage'></image>
 </view>

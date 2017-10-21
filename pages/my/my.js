@@ -102,6 +102,11 @@ Page({
   onShow() {
 
   },
+  clickNavigateToDetailPage() {
+    wx.navigateTo({
+      url: '../detail/detail?id=1'
+    })
+  },
   initFixTabHeight() {
     let _this = this
     wx.createSelectorQuery().select('#user-info').boundingClientRect(function(rect){
