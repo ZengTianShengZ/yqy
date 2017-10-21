@@ -12,9 +12,9 @@
     </block>
     <image class="choose-image-btn" wx:if='{{sendData.imgTempFilePaths.length < 9}}' bindtap="chooseImgBtnClick" src="../../images/icon/iconAddImg.png"></image>
   </view>
-  <view class='icon-address'>
+  <view class='icon-address' bindtap="chooseLocationBtnClick" >
     <image class="img-icon" src="../../images/icon/iconAddress.png"></image>
-    <text class="text-ng">福鼎家园·xx</text>
+    <text class="text-ng">{{str_address}}</text>
   </view>
   <view class='send-btn-box'>
     <button class='send-btn'  bindtap="sendBtnClick"> 发送 </button>

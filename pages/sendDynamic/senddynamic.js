@@ -8,11 +8,32 @@ const app = getApp();
 Page({
   data: {
     sendData: {
-      imgTempFilePaths: []
+      imgTempFilePaths: [],
+      str_address: ''
     }
   },
   onLoad() {
-
+    this.initLocationAddress()
+  },
+  initLocationAddress() {
+    let _this = this
+    const location = storage.get('location')
+    app.getQQMapWX().reverseGeocoder({
+        location: {
+            latitude: location.latitude,
+            longitude: location.longitude
+        },
+        success: function(res) {
+            _this.setData({
+               str_address: `${res.result.address_component.district}•${res.result.address_component.street}`
+            })
+        },
+        fail: function(res) {
+          _this.setData({
+            str_address: '请点击此处选择地址...'
+          })
+        }
+    });
   },
   closeImgBtnClick(event) {
     let closeimgindex = event.currentTarget.dataset.closeimgindex
@@ -38,6 +59,17 @@ Page({
           sendData:{
             imgTempFilePaths:  res.tempFilePaths.concat(imgTempFilePaths)
           }
+        })
+      }
+    })
+  },
+  chooseLocationBtnClick() {
+    let _this = this
+    wx.chooseLocation({
+      success: function(res) {
+        console.log(res);
+        _this.setData({
+           str_address: res.name
         })
       }
     })
