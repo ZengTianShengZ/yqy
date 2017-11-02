@@ -4,19 +4,25 @@
       <image src='{{avatarUrl}}'></image>
     </view>
     <view class='content-box'>
+      <view class='list-imgs'>
+               <image class='list-imgs-item-big-one' src="{{imgList[0]}}" data-imgUrl='{{item}}' data-imgUrls='{{imgList}}' bindtap='clickPreviewImage'></image>
+          <!-- <image class='list-imgs-item-big' wx:if='{{imgList.length <= 2}}' wx:for="{{imgList}}" src="{{item}}" wx:key='index' data-imgUrl='{{item}}' data-imgUrls='{{imgList}}' bindtap='clickPreviewImage'></image> -->
+          <!-- <image class='list-imgs-item' wx:if='{{imgList.length > 2}}' wx:for="{{imgList}}" src="{{item}}" wx:key='index' data-imgUrl='{{item}}' data-imgUrls='{{imgList}}' bindtap='clickPreviewImage'></image> -->
+        </view>
       <view class='header'>
         <view class='header-text1'>
           <text class='name'>{{nickName}}</text><text class='t-nt'>  发起一起吖:</text>
         </view>
         <view class='f-jb-ac header-text2'>
-          <text>{{createTime}}</text><span>{{address}} <image class='icon-adderss' src="../../images/icon/iconAddress.png"></image></span>
+          <text>{{createdAt}}</text><span>{{address}} <image class='icon-adderss' src="../../images/icon/iconAddress.png"></image></span>
         </view>
       </view>
       <view class='content'>
         <text class='description'>{{description}}</text>
         <view class='list-imgs'>
-          <image class='list-imgs-item-big' wx:if='{{imgList.length <= 2}}' wx:for="{{imgList}}" src="{{item}}" wx:key='index' data-imgUrl='{{item}}' data-imgUrls='{{imgList}}' bindtap='clickPreviewImage'></image>
-          <image class='list-imgs-item' wx:if='{{imgList.length > 2}}' wx:for="{{imgList}}" src="{{item}}" wx:key='index' data-imgUrl='{{item}}' data-imgUrls='{{imgList}}' bindtap='clickPreviewImage'></image>
+               <!-- <image class='list-imgs-item-big-one' src="{{imgList[0]}}" data-imgUrl='{{item}}' data-imgUrls='{{imgList}}' bindtap='clickPreviewImage'></image> -->
+          <!-- <image class='list-imgs-item-big' wx:if='{{imgList.length <= 2}}' wx:for="{{imgList}}" src="{{item}}" wx:key='index' data-imgUrl='{{item}}' data-imgUrls='{{imgList}}' bindtap='clickPreviewImage'></image> -->
+          <!-- <image class='list-imgs-item' wx:if='{{imgList.length > 2}}' wx:for="{{imgList}}" src="{{item}}" wx:key='index' data-imgUrl='{{item}}' data-imgUrls='{{imgList}}' bindtap='clickPreviewImage'></image> -->
         </view>
       </view>
     </view>
