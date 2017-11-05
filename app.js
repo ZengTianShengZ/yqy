@@ -27,12 +27,13 @@ App({
   getLocation() {
     return storage.get('location')
   },
-  getToken() {
+  getTokenInfo() {
     return new Promise((resolve, reject) => {
-      const openId = storage.get('openId')
-      if (openId) {
-        resolve(openId)
+      const userInfo = storage.get('userInfo')
+      if (userInfo) {
+        resolve(userInfo)
       } else {
+        let info = {}
         wx.login({
           success: function (res) {
             const code = res.code
@@ -47,6 +48,9 @@ App({
                   var province = userInfo.province
                   var city = userInfo.city
                   var country = userInfo.country
+                  info = {
+                    nickName, avatarUrl, gender, province, city, country
+                  }
                   //发起网络请求
                   wx.request({
                     url: 'https://yqy.mynatapp.cc/v2/login',
@@ -61,8 +65,9 @@ App({
                       country
                     },
                     success: function (res) {
-                      storage.set('openId', res.data.data.openId)
-                      resolve(res.data.data.openId)
+                      info.openId = res.data.data.openId
+                      storage.set('userInfo', info)
+                      resolve(info)
                     },
                     fail: function (err) {
                       reject(err)

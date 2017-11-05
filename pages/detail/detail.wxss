@@ -134,8 +134,19 @@
   height: 45rpx;
 }
 .input-comment .textarea-com{
+  display: inline-block;
+  width: 100rxp;
   padding-bottom: 10rpx;
   font-size: 36rpx;
   box-sizing: border-box;
   border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+  .input-comment textarea {
+  width: 530rpx;
+}
+   .input-comment .submit-btn {
+   display: inline-block;
+   color: #3C3C3C;
+   font-size: 30rpx;
+   background: #ffffff;
 }

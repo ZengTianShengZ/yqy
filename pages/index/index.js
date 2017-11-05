@@ -34,9 +34,8 @@ Page({
        pageNum: 0,   //请求页码
        pageSize: 10   //每页条数
      })
-     console.log(data)
      this.setData({
-       arr_listItems: data.data.dynamicList
+       arr_listItems: data.data.list
      })
     } catch (err) {
       console.log(err)
@@ -50,9 +49,10 @@ Page({
       }
     })
   },
-  clickNavigateToDetailPage() {
+  clickNavigateToDetailPage(event) {
+    const itemId = event.currentTarget.dataset.itemid
     wx.navigateTo({
-      url: '../detail/detail?id=1'
+      url: '../detail/detail?itemId=' + itemId
     })
   },
   clickNavigateToSendDyPage() {

@@ -2,7 +2,6 @@
 <import src='../../components/commentItem/index.wxml'/>
 
 <view class="section">
-  <!-- <template is="listItem" data='{{...obj_listItem}}'></template> -->
   <view class='detail-view' bindtap='clickNavigateTo'>
     <view class='f-js-ac head-view'>
       <image class='fl avatar' src='{{obj_listItem.avatarUrl}}'></image>
@@ -15,7 +14,7 @@
           </view>
         </view>
         <view class='clear time-address'>
-          <text class='fl time'>{{obj_listItem.createTime}}</text>
+          <text class='fl time'>{{obj_listItem.createdAt}}</text>
           <view class='fr'>
             <image class='icon-adderss' src="../../images/icon/iconAddress.png"></image>
             <text class='address'>{{obj_listItem.address}}</text>
@@ -34,18 +33,17 @@
   <view class='join-member f-jb-ac'>
     <view class='f-js-ac jm-left'>
       <text>吖:</text>
-      <image src='{{obj_listItem.avatarUrl}}'></image>
-      <image src='{{obj_listItem.avatarUrl}}'></image>
-      <image src='{{obj_listItem.avatarUrl}}'></image>
+      <image wx:for="{{obj_listItem.joinIdList}}" wx:key='index' src="{{item.avatarUrl}}"></image>
     </view>
-    <text class='fr jm-r-text'>+5</text>
+    <text class='fr jm-r-text'>+{{obj_listItem.joinIdList.length}}</text>
   </view>
   <view class='comment'>
     <text class='text-ng'>评论留言</text>
     <template is="commentItem" wx:for='{{arr_commentList}}' wx:key='index' data='{{...item}}'></template>
   </view>
-  <view class='f-js-as input-comment'>
-    <image class='input-icon' src='../../images/icon/iconPen.png'></image>
-    <textarea class='textarea-com' auto-height fixed='true' placeholder="写评论" placeholder-style="color:#7F7F7F;"  />
-  </view>
+  <form  class='f-js-as input-comment' bindsubmit="bindFormSubmit">
+        <image class='input-icon' src='../../images/icon/iconPen.png'></image>
+        <textarea name="textarea" class='textarea-com' auto-height fixed='true' placeholder="写评论" placeholder-style="color:#7F7F7F;"  />
+        <button class='submit-btn' form-type="submit"> 提交 </button>
+  </form>
 </view>

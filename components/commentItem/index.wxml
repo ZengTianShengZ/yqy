@@ -3,7 +3,7 @@
     <image class='fl' src='{{avatarUrl}}'></image>
     <view class='item-right'>
       <text class='name'>{{nickName}}</text>
-      <text class='create-time'>{{createTime}}</text>
+      <text class='create-time'>{{createdAt}}</text>
       <text class='comment-text'>{{comment}}</text>
     </view>
   </view>
