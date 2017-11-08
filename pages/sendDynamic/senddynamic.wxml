@@ -17,6 +17,7 @@
     <text class="text-ng">{{str_address}}</text>
   </view>
   <view class='send-btn-box'>
+    <button class='send-btn'  bindtap="ttUploadFileBtn"> 发送 tt</button>
     <button class='send-btn'  bindtap="sendBtnClick"> 发送 </button>
   </view>
 </view>
