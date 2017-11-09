@@ -9,3 +9,6 @@ exports.getDetailDynamic = (data) => ajax('/v2/getDetailDynamic', data)
 exports.getConditionComment = (data) => ajax('/v2/getConditionComment', data)
 
 exports.sumitCommont = (data) => ajax('/v1/commont', data)
+
+exports.postDynamic = (data) => ajax('/v1/postDynamic', data)
+

@@ -2,15 +2,16 @@
 //获取应用实例
 const storage = require('../../libs/lib/storage')
 const qiniuUploader = require("../../utils/qiniuUploader");
+const config = require("../../config/index");
+const api = require('../../api/index')
 
 const app = getApp();
 
 Page({
   data: {
-    sendData: {
-      imgTempFilePaths: [],
-      str_address: ''
-    }
+    imgTempFilePaths: [],
+    str_address: '',
+    str_description: ''
   },
   onLoad() {
     this.initLocationAddress()
@@ -37,18 +38,16 @@ Page({
   },
   closeImgBtnClick(event) {
     let closeimgindex = event.currentTarget.dataset.closeimgindex
-    let imgTempFilePaths = this.data.sendData.imgTempFilePaths
+    let imgTempFilePaths = this.data.imgTempFilePaths
     //arr.splice(closeimgindex,1) 有问题不知道为什么，才用以下方法
     let imgTempFilePathsx = imgTempFilePaths.slice(0,closeimgindex).concat(imgTempFilePaths.slice(closeimgindex+1,imgTempFilePaths.length))
     this.setData({
-      sendData:{
-        imgTempFilePaths:  imgTempFilePathsx
-      }
+      imgTempFilePaths: imgTempFilePathsx
     })
   },
   chooseImgBtnClick(){
     let _this = this
-    let imgTempFilePaths = this.data.sendData.imgTempFilePaths
+    let imgTempFilePaths = this.data.imgTempFilePaths
     wx.chooseImage({
       count: 9 - imgTempFilePaths.length, // 默认9
       sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
@@ -56,9 +55,7 @@ Page({
       success: function (res) {
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         _this.setData({
-          sendData:{
-            imgTempFilePaths:  res.tempFilePaths.concat(imgTempFilePaths)
-          }
+          imgTempFilePaths: res.tempFilePaths.concat(imgTempFilePaths)
         })
       }
     })
@@ -74,23 +71,82 @@ Page({
       }
     })
   },
-  ttUploadFileBtn(){
-    wx.chooseImage({
-      success: function (res) {
-        var tempFilePaths = res.tempFilePaths
+  bindFormSubmit(e) {
+    this.setData({
+      str_description: e.detail.value.textarea
+    })
+    app.getTokenInfo().then(res => {
+      console.log(res)
+      if (res.openId) {
+        this.uploadFiles()
+      } else {
+        console.log('openId x 不存在')
+      }
+    }).catch(err => {
+      console.log(err)
+    })
+  },
+  uploadFiles(){
+    const _this = this
+    const imgUrlList = this.data.imgTempFilePaths
+    // 生成一个Promise对象的数组
+    var promises = imgUrlList.map(function (item) {
+      return new Promise((reslove, reject) => {
         // 交给七牛上传
-        qiniuUploader.upload(tempFilePaths[0], (res) => {
-          console.logres()
+        qiniuUploader.upload(item, (res) => {
+          reslove(res)
         }, (error) => {
           console.log('error: ' + error);
-        }, {
-            region: 'ECN',
-            domain: 'oyn5he3v2.bkt.clouddn.com', // // bucket 域名，下载资源时用到。如果设置，会在 success callback 的 res 参数加上可以直接使用的 ImageURL 字段。否则需要自己拼接
-            key: 'xxxxxx.jpg', // [非必须]自定义文件 key。如果不设置，默认为使用微信小程序 API 的临时文件名
-            // 以下方法三选一即可，优先级为：uptoken > uptokenURL > uptokenFunc
-            uptokenURL: 'https://yqy.mynatapp.cc/v2/qnUptoken', // 从指定 url 通过 HTTP GET 获取 uptoken，返回的格式必须是 json 且包含 uptoken 字段，例如： {"uptoken": "[yourTokenString]"}
-          });
+        }, config.qnConfig);
+      })
+    });
+    Promise.all(promises).then(function (res) {
+      let imgListStr =''
+      res.forEach(item => {
+        imgListStr += item.imageURL + ','
+      })
+      imgListStr = imgListStr.substring(0, imgListStr.length - 1)
+      _this.sendDynamic(imgListStr)
+    }).catch(function (reason) {
+      console.log('.......文件上传出错')
+      console.log(reason)
+    });
+  },
+  // openId: String,
+  // nickName: String,
+  // avatarUrl: { type: String, default: 'http://oyn5he3v2.bkt.clouddn.com/defaultAvatar.png' },
+  // //latitude: String,
+  // //longitude: String,
+  // location: { type: [Number], index: { type: '2dsphere', sparse: true } },
+  // address: String,
+  // description: String,
+  // imgList: [],
+  // joinIdList: []
+  async sendDynamic(imgList) {
+    const str_address = this.data.str_address
+    const str_description = this.data.str_description
+    try {
+      const location = storage.get('location')
+      const userInfo = await app.getTokenInfo()
+      console.log(userInfo)
+      if (!userInfo.openId) {
+        console.log('openId  不存在')
+        return
       }
-    })
+      const sendData = {
+        openId: userInfo.openId,
+        nickName: userInfo.nickName,
+        avatarUrl: userInfo.avatarUrl,
+        location: `${location.longitude},${location.latitude}`,
+        address: str_address,
+        description: str_description,
+        imgList: imgList
+      }
+      console.log(sendData)
+      let res = await api.postDynamic(sendData)
+      console.log(res)
+    } catch (err) {
+      console.log(err)
+    }
   }
 });

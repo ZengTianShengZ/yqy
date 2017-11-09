@@ -1,23 +1,24 @@
 
 <view class="section">
-  <view>
-    <textarea class='textarea-text' bindblur="bindTextAreaBlur"  placeholder="一起吖~" />
-  </view>
-  <view class='choose-image'>
-    <block class="image-list" wx:if='{{sendData.imgTempFilePaths.length > 0}}'>
-      <view class="choose-block" wx:for='{{sendData.imgTempFilePaths}}' wx:key='index'>
-        <image class="close-image-btn" data-closeImgIndex='{{index}}' bindtap="closeImgBtnClick" src="../../images/icon/iconClose.png"></image>
-        <image class="image-item" src="{{item}}"></image>
-      </view>
-    </block>
-    <image class="choose-image-btn" wx:if='{{sendData.imgTempFilePaths.length < 9}}' bindtap="chooseImgBtnClick" src="../../images/icon/iconAddImg.png"></image>
-  </view>
-  <view class='icon-address' bindtap="chooseLocationBtnClick" >
-    <image class="img-icon" src="../../images/icon/iconAddress.png"></image>
-    <text class="text-ng">{{str_address}}</text>
-  </view>
-  <view class='send-btn-box'>
-    <button class='send-btn'  bindtap="ttUploadFileBtn"> 发送 tt</button>
-    <button class='send-btn'  bindtap="sendBtnClick"> 发送 </button>
-  </view>
+  <form bindsubmit="bindFormSubmit">
+    <view>
+      <textarea class='textarea-text'  name="textarea" placeholder="一起吖~" />
+    </view>
+    <view class='choose-image'>
+      <block class="image-list" wx:if='{{imgTempFilePaths.length > 0}}'>
+        <view class="choose-block" wx:for='{{imgTempFilePaths}}' wx:key='index'>
+          <image class="close-image-btn" data-closeImgIndex='{{index}}' bindtap="closeImgBtnClick" src="../../images/icon/iconClose.png"></image>
+          <image class="image-item" src="{{item}}"></image>
+        </view>
+      </block>
+      <image class="choose-image-btn" wx:if='{{imgTempFilePaths.length < 9}}' bindtap="chooseImgBtnClick" src="../../images/icon/iconAddImg.png"></image>
+    </view>
+    <view class='icon-address' bindtap="chooseLocationBtnClick" >
+      <image class="img-icon" src="../../images/icon/iconAddress.png"></image>
+      <text class="text-ng">{{str_address}}</text>
+    </view>
+    <view class='send-btn-box'>
+      <button class='send-btn'  form-type="submit"> 发送 </button>
+    </view>
+  </form>
 </view>
