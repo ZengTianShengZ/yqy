@@ -12,3 +12,8 @@ exports.sumitCommont = (data) => ajax('/v1/commont', data)
 
 exports.postDynamic = (data) => ajax('/v1/postDynamic', data)
 
+exports.joinYqy = (data) => ajax('/v1/joinYqy', data)
+
+exports.getUserJoinList = (data) => ajax('/v1/getUserJoinList', data)
+
+exports.getUserDynamicList = (data) => ajax('/v1/getUserDynamicList', data)

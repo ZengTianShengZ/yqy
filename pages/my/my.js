@@ -1,5 +1,8 @@
 //index.js
 //获取应用实例
+const storage = require('../../libs/lib/storage')
+const api = require('../../api/index')
+
 const app = getApp()
 
 Page({
@@ -76,31 +79,62 @@ Page({
     ]
   },
   onLoad: function () {
+    let _this = this
+  
+    app.getTokenInfo().then(userInfo => {
+      this.setData({
+        obj_userInfo: userInfo
+      })
+      this.getUserDynamicList()
+      this.getUserJoinList()
+    })
     /**
      * 获取系统信息
      */
-    let _this = this
     wx.getSystemInfo({
-      success: function( res ) {
+      success: function (res) {
         console.log(res);
-        _this.setData( {
+        _this.setData({
           winHeight: res.windowHeight
         });
       }
     });
-
-    wx.getUserInfo({
-      success: res => {
-        this.setData({
-          obj_userInfo: res.userInfo
-        })
-      }
-    })
-
     this.initFixTabHeight()
   },
-  onShow() {
-
+  async getUserDynamicList() {
+    //     let {pageNum, pageSize, openId} = obj_condition
+    const openId = this.data.obj_userInfo.openId
+    try{
+      const res = await api.getUserDynamicList({
+        openId: openId,
+        pageNum: 0,
+        pageSize: 10
+      })
+      if (res.success) {
+        console.log(res)
+      } else {
+        console.log('数据获取失败')
+      }
+    } catch(err) {
+      console.log(err)
+    }
+  },
+  async getUserJoinList(){
+    const openId = this.data.obj_userInfo.openId
+    try {
+      const res = await api.getUserJoinList({
+        openId: openId,
+        pageNum: 0,
+        pageSize: 10
+      })
+      if (res.success) {
+        console.log(res)
+      } else {
+        console.log('数据获取失败')
+      }
+    } catch (err) {
+      console.log(err)
+    }
   },
   clickNavigateToDetailPage() {
     wx.navigateTo({

@@ -2,7 +2,7 @@
 <import src='../../components/commentItem/index.wxml'/>
 
 <view class="section">
-  <view class='detail-view' bindtap='clickNavigateTo'>
+  <view class='detail-view'>
     <view class='f-js-ac head-view'>
       <image class='fl avatar' src='{{obj_listItem.avatarUrl}}'></image>
       <view class='right-view'>
@@ -10,7 +10,7 @@
           <text class='fl name'>{{obj_listItem.nickName}}</text>
           <view class='fr'>
             <image class='icon-join' src="../../images/icon/iconJoin.png"></image>
-            <text class='joinbtn'>吖</text>
+            <text class='joinbtn' bindtap='joinYqyClick'>吖</text>
           </view>
         </view>
         <view class='clear time-address'>

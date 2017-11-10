@@ -78,11 +78,23 @@ Page({
       })
     })
   },
-  async postCommont() {
-    try{
-
-    } catch(err) {
-
-    }
+  async joinYqyClick(e) {
+    const itemId = this.data.itemId
+    try {
+      const userInfo = await app.getTokenInfo()
+      let data = await api.joinYqy({
+        id: itemId,
+        openId: userInfo.openId,
+        nickName: userInfo.nickName,
+        avatarUrl: userInfo.avatarUrl
+      })
+      if (data.success) {
+        console.log('加入成功')
+      } else {
+        console.log('加入失败')
+      }
+    } catch (err) {
+      console.log(err)
+    }   
   }
 });
